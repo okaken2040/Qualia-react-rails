@@ -1,0 +1,12 @@
+ここはscenes/edit.html.erbです。
+
+<div class="container-fluid">
+<div class="row">
+	<div class="col-12">
+		<%= react_component("Master",{serif:@scene.serifs.first.serif, top:@scene.serifs.first.top, left:@scene.serifs.first.left, img_url:attachment_url(@scene.images.first, :image)})%>
+
+		<!-- %= react_component(@scene.component_num,{serif:@scene.serifs.first.serif, top:@scene.serifs.first.top, left:@scene.serifs.first.left, img_url:attachment_url(@scene.images.first, :image)})%-->
+	</div>
+</div>
+</div>
+

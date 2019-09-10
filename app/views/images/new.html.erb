@@ -1,0 +1,15 @@
+<h1>新規投稿</h1>
+<%= form_for @image, url:images_path, method:"post" do |f| %>
+
+  <h4>作品名</h4>
+  <%= f.text_field :name %>
+
+  <h4>シーン番号</h4>
+  <%= f.text_field :scene_id %>
+
+  <h4>画像</h4>
+  <%= f.attachment_field :image %>
+
+  <%= f.submit '投稿' %>
+
+<% end %>

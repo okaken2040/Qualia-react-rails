@@ -1,0 +1,11 @@
+<h1>作品一覧</h1>
+<% @images.each do |image| %>
+  <p>タイトル</p>
+  <span>
+    <%=link_to image.name, image_path(image.id) %>
+  </span>
+  <p>画像</p>
+  <%= attachment_image_tag image, :image, :fill, 100, 100, format: 'jpeg' %>
+	<p>シーン番号</p>
+	<p><%= image.scene_id %></p>
+<% end %>
