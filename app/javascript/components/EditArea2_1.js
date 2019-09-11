@@ -4,7 +4,8 @@ import styled from "styled-components"
 import {
 	CHANGE_SERIF,
 	CHANGE_LEFT,
-	CHANGE_TOP
+	CHANGE_TOP,
+	updateScene
 } from '../actions'
 import AppContext from '../contexts/AppContext'
 
@@ -104,10 +105,21 @@ const EditArea2_1 = () => {
 	// 	console.log(event.target.value);
 	// }
 
+	const handleSubmit = (e) => {
+		console.log('handlSubmitは有効')
+		e.preventDefault()
+		const scene = {serif:serif, top:top, left:left, img_url:img_url}
+		updateScene(scene)
+		setSerif('')
+		setTop('')
+		setLeft('')
+		setImage_url('')
+	}
+
     return (
       <React.Fragment>
 
-					<form action="">
+					<form>
 						<h3>セリフ1設定</h3>
 						<p>セリフ</p>
 						<textarea 
@@ -127,7 +139,7 @@ const EditArea2_1 = () => {
 						<h3>画像設定</h3>
 						<input type="file"/> <br/>
 						{/* <input type='hidden' name='authenticity_token' value={state.editScene[2].authenticity_token} /> <br/> */}
-						<input type="submit" value="更新"/>
+						<input type="submit" value="更新" onClick={ e => handleSubmit(e)}/>
 					</form>
 
       </React.Fragment>

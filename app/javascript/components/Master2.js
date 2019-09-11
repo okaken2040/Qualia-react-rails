@@ -8,62 +8,34 @@ import EditArea2_2 from "./EditArea2_2"
 import AppContext from '../contexts/AppContext'
 import reducer from '../reducers'
 
+import useThunkReducer from 'react-hook-thunk-reducer';
+
+import SceneIndex from './SceneIndex'
+
+
+
+
+
+
 const Master2 = (props) => {
 	const  props2  = {editScene: [props["0"],props["1"]]}
 
 	const [initialState,setInitialState] = useState(props2)
 
 
-	const [state, dispatch] = useReducer(reducer, initialState)
-
-
-	// constructor(props){
-	// 	super(props);
-	// 	this.state = [{
-	// 		img_url: this.props.img_url,
-	// 		serif: this.props.serif,
-	// 		top: this.props.top,
-	// 		left: this.props.left},
-
-	// 		{img_url: this.props.img_url2,
-	// 		serif: this.props.serif2,
-	// 		top: this.props.top2,
-	// 		left: this.props.left2
-	// 	}]
-	// }
-
-	// handleSerifChange = (serif) => {
-	// 	this.setState({0:{serif:serif}});
-	// }
-	// handleLeftChange = (left) => {
-	// 	this.setState({0:{left:left}});
-	// }
-	// handleTopChange = (top) => {
-	// 	this.setState({0:{top:top}});
-	// }
-
-
-
-	// handleSerifChangeB = (serif) => {
-	// 	this.setState({1:{serif:serif}});
-	// }
-	// handleLeftChangeB = (left) => {
-	// 	this.setState({1:{left:left}});
-	// }
-	// handleTopChangeB = (top) => {
-	// 	this.setState({1:{top:top}});
-	// }
+	const [state, dispatch] = useThunkReducer(reducer, initialState)
 
 
     return (
       <AppContext.Provider value={{ state, dispatch }}>
-				<C2_Wrap/>
+					<C2_Wrap/>
 					<Wrap1>
 						<EditArea2_1/>
 					</Wrap1>
 					<Wrap2>
 						<EditArea2_2/>
 					</Wrap2>
+					<SceneIndex/>
       </AppContext.Provider>
     );
 }
