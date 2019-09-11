@@ -3,8 +3,8 @@
 <div class="container-fluid">
 <div class="row">
 	<div class="col-12">
-		<%= react_component("Master2",[{
-			serif:"セリフ1です", 
+		<%= react_component("Master2",[
+			{serif:"セリフ1です", 
 			top:50, 
 			left:50, 
 			img_url:attachment_url(@scene.images.first, :image)},
@@ -12,8 +12,10 @@
 			{serif:"セリフ2です", 
 			top:100, 
 			left:100, 
-			img_url:attachment_url(@scene.images.first, :image)
-			}])%>
+			img_url:attachment_url(@scene.images.first, :image)},
+
+			{authenticity_token:form_authenticity_token}
+			])%>
 
 
 	</div>

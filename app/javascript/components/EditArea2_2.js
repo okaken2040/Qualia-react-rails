@@ -26,40 +26,48 @@ const EditArea2_2 = () => {
 	// }
 
 
-
 	const isFirstRef = useRef(true);
-
-
-	// 次回使用するために前回のステートを更新
+	const isFirstRefLeft = useRef(true);
+	const isFirstRefTop = useRef(true);
 	const lastStateRef = useRef();
 
 	useEffect(() => {
-		if (isFirstRef.current) {
-			isFirstRef.current = false;
-		} else {
+		console.log(isFirstRef.current)
+    if (isFirstRef.current) {
+      isFirstRef.current = false;
+    } else {
 			dispatch({
 				type: CHANGE_SERIF,
 				serif,
-				index:0
+				index:1
 			})
 		}
-		lastStateRef.current = serif;
 	}, [serif])
 
 	useEffect(() => {
-		dispatch({
-			type: CHANGE_LEFT,
-			left,
-			index:1
-		})
+		console.log(isFirstRefLeft.current)
+    if (isFirstRefLeft.current) {
+      isFirstRefLeft.current = false;
+    } else {
+			dispatch({
+				type: CHANGE_LEFT,
+				left,
+				index:1
+			})
+		}
 	}, [left])
 
 	useEffect(() => {
-		dispatch({
-			type: CHANGE_TOP,
-			top,
-			index:1
-		})
+		console.log(isFirstRefTop.current)
+    if (isFirstRefTop.current) {
+      isFirstRefTop.current = false;
+    } else {
+			dispatch({
+				type: CHANGE_TOP,
+				top,
+				index:1
+			})
+		}
 	}, [top])
 
 

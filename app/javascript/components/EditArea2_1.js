@@ -27,32 +27,60 @@ const EditArea2_1 = () => {
 
 
 	const isFirstRef = useRef(true);
+	const isFirstRefLeft = useRef(true);
+	const isFirstRefTop = useRef(true);
+	const lastStateRef = useRef();
 
 	useEffect(() => {
-		if(!isFirstRef.current){
+		console.log(isFirstRef.current)
+    if (isFirstRef.current) {
+      isFirstRef.current = false;
+    } else {
 			dispatch({
 				type: CHANGE_SERIF,
 				serif,
 				index:0
 			})
-		}
+    }
 
+    lastStateRef.current = serif;
 	}, [serif])
 
+
+
+	
 	useEffect(() => {
-		dispatch({
-			type: CHANGE_LEFT,
-			left,
-			index:0
-		})
+		console.log(isFirstRefLeft.current)
+    if (isFirstRefLeft.current) {
+      isFirstRefLeft.current = false;
+    } else {
+			console.log("leftのディスパッチ")
+			dispatch({
+				type: CHANGE_LEFT,
+				left,
+				index:0
+			})
+		}
+		lastStateRef.current = left;
 	}, [left])
 
+
+
+
+
+	
 	useEffect(() => {
-		dispatch({
-			type: CHANGE_TOP,
-			top,
-			index:0
-		})
+		console.log(isFirstRefTop.current)
+    if (isFirstRefTop.current) {
+      isFirstRefTop.current = false;
+    } else {
+			dispatch({
+				type: CHANGE_TOP,
+				top,
+				index:0
+			})
+		}
+		lastStateRef.current = top;
 	}, [top])
 
 
@@ -97,8 +125,8 @@ const EditArea2_1 = () => {
 							onChange={ e => setTop(e.target.value)}
 							/>
 						<h3>画像設定</h3>
-						<input type="file"
-						/> <br/>
+						<input type="file"/> <br/>
+						{/* <input type='hidden' name='authenticity_token' value={state.editScene[2].authenticity_token} /> <br/> */}
 						<input type="submit" value="更新"/>
 					</form>
 
