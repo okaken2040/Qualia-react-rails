@@ -1,7 +1,7 @@
 class ScenesController < ApplicationController
 	def index
 		binding.pry
-		render json:"success"
+		render json:params
   end
 	
   def show
@@ -16,10 +16,17 @@ class ScenesController < ApplicationController
 	end
 	
 	def update
-		binding.pry
-		redirect_to :index
+		# binding.pry
+		serif = Serif.where(scene_id:params[:id])
+		serif.update(serif: params[:params][:serif])
+		render json:serif
 	end
 
   def new
-  end
+	end
+
+	private
+	def serif_params
+		params.require(:serif).permit(:serif, :top, :left)
+	end
 end

@@ -9,7 +9,6 @@ const editScene = (state = [], action) => {
 	// console.log(state)
   switch(action.type) {
     case CHANGE_SERIF:
-			console.log("aaaaaaaaaa")
 			if(action.index == 0){
 				return [{ ...state[0],serif:action.serif}, state[1]]
 			} else {

@@ -4,9 +4,9 @@
 <div class="row">
 	<div class="col-12">
 		<%= react_component("Master2",[
-			{serif:"セリフ1です", 
-			top:50, 
-			left:50, 
+			{serif:@scene.serifs.first.serif, 
+			top:@scene.serifs.first.top, 
+			left:@scene.serifs.first.left, 
 			img_url:attachment_url(@scene.images.first, :image)},
 
 			{serif:"セリフ2です", 

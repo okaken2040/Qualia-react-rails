@@ -37,6 +37,8 @@ const EditArea2_1 = () => {
     if (isFirstRef.current) {
       isFirstRef.current = false;
     } else {
+			console.log("serifのディスパッチ")
+			console.log(serif)
 			dispatch({
 				type: CHANGE_SERIF,
 				serif,
@@ -75,6 +77,7 @@ const EditArea2_1 = () => {
     if (isFirstRefTop.current) {
       isFirstRefTop.current = false;
     } else {
+			console.log("topのディスパッチ")
 			dispatch({
 				type: CHANGE_TOP,
 				top,
@@ -109,11 +112,20 @@ const EditArea2_1 = () => {
 		console.log('handlSubmitは有効')
 		e.preventDefault()
 		const scene = {serif:serif, top:top, left:left, img_url:img_url}
-		updateScene(scene)
+		updateScene(scene).then(res => {
+			console.log(res)
+			dispatch({
+				type: CHANGE_SERIF,
+				serif: res,
+				index:0
+			})
+		})
 		setSerif('')
 		setTop('')
 		setLeft('')
 		setImage_url('')
+
+
 	}
 
     return (
